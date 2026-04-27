@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -22,6 +24,16 @@ import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slu
 const ToursRoute = ToursRouteImport.update({
   id: '/tours',
   path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidesRoute = GuidesRouteImport.update({
@@ -70,6 +82,8 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/guides': typeof GuidesRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tours': typeof ToursRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
@@ -81,6 +95,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/guides': typeof GuidesRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tours': typeof ToursRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
@@ -93,6 +109,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/guides': typeof GuidesRouteWithChildren
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tours': typeof ToursRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
@@ -106,6 +124,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/guides'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/tours'
     | '/destinations/$slug'
     | '/guides/best-time-to-dive'
@@ -117,6 +137,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/guides'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/tours'
     | '/destinations/$slug'
     | '/guides/best-time-to-dive'
@@ -128,6 +150,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/guides'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/tours'
     | '/destinations/$slug'
     | '/guides/best-time-to-dive'
@@ -140,6 +164,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GuidesRoute: typeof GuidesRouteWithChildren
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToursRoute: typeof ToursRoute
   DestinationsSlugRoute: typeof DestinationsSlugRoute
 }
@@ -151,6 +177,20 @@ declare module '@tanstack/react-router' {
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides': {
@@ -232,6 +272,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GuidesRoute: GuidesRouteWithChildren,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToursRoute: ToursRoute,
   DestinationsSlugRoute: DestinationsSlugRoute,
 }
