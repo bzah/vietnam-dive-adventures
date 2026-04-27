@@ -175,11 +175,28 @@ export const Route = createFileRoute("/destinations/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Destination" }] };
+    const d = loaderData.dest;
+    const path = `/destinations/${d.slug}`;
     return pageHead({
-      title: loaderData.dest.seo_title,
-      description: loaderData.dest.seo_desc,
-      image: loaderData.dest.img,
-      path: `/destinations/${loaderData.dest.slug}`,
+      title: d.seo_title,
+      description: d.seo_desc,
+      image: d.img,
+      path,
+      keywords: d.keywords,
+      type: "article",
+      jsonLd: [
+        destinationJsonLd({ name: d.name, description: d.seo_desc, image: d.img, url: `${SITE.url}${path}` }),
+        faqJsonLd(d.faq),
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+            { "@type": "ListItem", position: 2, name: "Destinations", item: `${SITE.url}/` },
+            { "@type": "ListItem", position: 3, name: d.name, item: `${SITE.url}${path}` },
+          ],
+        },
+      ],
     });
   },
   component: DestinationPage,
@@ -264,6 +281,70 @@ function DestinationPage() {
             <FallbackTourGrid query={dest.query} />
           )}
           {error && <p className="mt-6 text-center text-xs text-muted-foreground">{error}</p>}
+        </div>
+      </section>
+
+      {/* Top dive sites table */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <span className="eyebrow">The dive map</span>
+        <h2 className="mt-3 text-4xl md:text-5xl">Top dive sites in {dest.name}</h2>
+        <div className="mt-10 overflow-hidden rounded-sm border border-border">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-sand">
+              <tr>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Site</th>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Depth</th>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Level</th>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Highlight</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dest.sites.map((s) => (
+                <tr key={s.name} className="border-t border-border">
+                  <td className="p-4 font-display text-lg">{s.name}</td>
+                  <td className="p-4 text-muted-foreground">{s.depth}</td>
+                  <td className="p-4 text-muted-foreground">{s.level}</td>
+                  <td className="p-4">{s.highlight}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-sand py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <span className="eyebrow">FAQ</span>
+          <h2 className="mt-3 text-4xl md:text-5xl">Frequently asked.</h2>
+          <dl className="mt-12 space-y-8">
+            {dest.faq.map((item) => (
+              <div key={item.q} className="border-b border-border pb-8">
+                <dt className="font-display text-2xl">{item.q}</dt>
+                <dd className="mt-3 text-lg leading-relaxed text-muted-foreground">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Internal links */}
+      <section className="mx-auto max-w-5xl px-6 py-20">
+        <span className="eyebrow">Keep reading</span>
+        <h2 className="mt-3 text-3xl md:text-4xl">Plan the rest of your trip</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <Link to="/guides/padi-courses" className="group block border-t border-border pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
+            <p className="mt-2 text-lg group-hover:text-coral">PADI courses in Vietnam</p>
+          </Link>
+          <Link to="/guides/best-time-to-dive" className="group block border-t border-border pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
+            <p className="mt-2 text-lg group-hover:text-coral">Best time to dive Vietnam</p>
+          </Link>
+          <Link to="/guides/dive-medical" className="group block border-t border-border pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
+            <p className="mt-2 text-lg group-hover:text-coral">Dive medical certificate</p>
+          </Link>
         </div>
       </section>
 
