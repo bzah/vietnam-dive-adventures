@@ -6,11 +6,13 @@ import hero from "@/assets/hero-diving.jpg";
 export const Route = createFileRoute("/guides/best-time-to-dive")({
   head: () =>
     pageHead({
-      title: "Best Time to Dive in Vietnam — Season by Region (2026) | VietnamDiving.com",
+      title: "Best Time to Dive in Vietnam — Month-by-Month Season Guide for Nha Trang, Phu Quoc, Con Dao & Cham Islands (2026)",
       description:
-        "When is the best time to dive in Vietnam? Region-by-region monsoon and visibility guide for Nha Trang, Phu Quoc, Con Dao and Cham Islands.",
+        "When is the best time to dive in Vietnam? A region-by-region breakdown of Vietnam's twin monsoon system, with month-by-month visibility, sea temperature and wind data for Nha Trang (Feb–Oct), Phu Quoc (Nov–May), Con Dao (Apr–Oct) and the Cham Islands (Mar–Sep). Includes the only month worth avoiding nationwide and the best windows for sea-turtle and whale-shark encounters.",
       image: hero,
       path: "/guides/best-time-to-dive",
+      keywords: "best time to dive Vietnam, Vietnam diving season, Nha Trang diving season, Phu Quoc diving season, Con Dao diving season, Cham Islands diving season, Vietnam monsoon diving, Vietnam dive visibility by month, when to dive Vietnam, Vietnam sea temperature diving, whale shark Vietnam, sea turtle Con Dao",
+              type: "article",
     }),
   component: () => (
     <GuideLayout

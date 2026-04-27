@@ -5,10 +5,12 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/guides/dive-medical")({
   head: () =>
     pageHead({
-      title: "Dive Medical Certificate in Vietnam — Where to Get One | VietnamDiving.com",
+      title: "Dive Medical Certificate in Vietnam — Approved Practitioners in Saigon, Hanoi, Nha Trang & Phu Quoc (2026)",
       description:
-        "Where can I get a dive medical certificate in Vietnam? Approved practitioners and clinics in Ho Chi Minh City, Hanoi, Nha Trang and Phu Quoc.",
+        "If your PADI / RSTC medical questionnaire flagged asthma, diabetes, hypertension, recent surgery or any other condition, you'll need a dive doctor sign-off before scuba diving in Vietnam. This guide lists trusted clinics and practitioners in Ho Chi Minh City, Hanoi, Nha Trang and Phu Quoc, what to bring to the appointment, typical pricing in USD, and how long to leave between the medical and your first dive.",
       path: "/guides/dive-medical",
+      keywords: "dive medical Vietnam, scuba medical certificate Vietnam, PADI medical questionnaire Vietnam, dive doctor Saigon, dive doctor Hanoi, dive doctor Nha Trang, dive doctor Phu Quoc, Family Medical Practice Vietnam, International SOS Vietnam, Vinmec dive medical, fitness to dive Vietnam, RSTC medical Vietnam",
+              type: "article",
     }),
   component: () => (
     <GuideLayout
