@@ -5,6 +5,7 @@ import { pageHead, faqJsonLd, destinationJsonLd, SITE } from "@/lib/seo";
 import { searchGygTours } from "@/lib/gyg.functions";
 import { TourCard, FallbackTourGrid } from "@/components/TourCard";
 import { gygLink } from "@/lib/getyourguide";
+import { AffiliateCTA } from "@/components/AffiliateCTA";
 import nhaTrang from "@/assets/nha-trang.jpg";
 import phuQuoc from "@/assets/phu-quoc.jpg";
 import conDao from "@/assets/con-dao.jpg";
@@ -312,6 +313,37 @@ function DestinationPage() {
             </table>
           </div>
         </div>
+      </section>
+
+      {/* Pricing snapshot + AffiliateCTA */}
+      <section className="mx-auto max-w-5xl px-5 sm:px-6">
+        <span className="eyebrow">What it costs</span>
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">{dest.name} diving — price snapshot</h2>
+        <p className="mt-5 max-w-3xl text-base text-muted-foreground sm:text-lg">
+          Indicative 2026 prices in USD per person. Live rates and instant booking via our partner GetYourGuide — most tours include hotel pickup, full equipment rental, lunch, and free cancellation up to 24 hours before departure.
+        </p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { k: "Discover Scuba", v: "$50–90", d: "No certification needed — try diving with an instructor" },
+            { k: "Two-tank fun dive", v: "$55–140", d: "Certified divers · gear, lunch, hotel pickup" },
+            { k: "PADI Open Water", v: "$300–420", d: "3–4 days · pool, theory, 4 open-water dives" },
+            { k: "Snorkeling day trip", v: "$25–60", d: "Family-friendly · boat, gear, lunch" },
+          ].map((p) => (
+            <div key={p.k} className="border border-border bg-card p-5 sm:p-6">
+              <p className="eyebrow">{p.k}</p>
+              <p className="mt-2 font-display text-3xl text-coral sm:text-4xl">{p.v}</p>
+              <p className="mt-2 text-xs text-muted-foreground sm:text-sm">{p.d}</p>
+            </div>
+          ))}
+        </div>
+        <AffiliateCTA
+          query={dest.query}
+          eyebrow="Live booking"
+          title={`Compare every ${dest.name} diving tour in one place`}
+          body={`Filter by date, group size, language and price. Read verified reviews from divers who actually went, and reserve your spot in ${dest.name} with free cancellation on most tours.`}
+          ctaLabel={`See ${dest.name} tours`}
+          variant="primary"
+        />
       </section>
 
       {/* FAQ */}
