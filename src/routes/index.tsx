@@ -1,13 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { pageHead } from "@/lib/seo";
+import { pageHead, faqJsonLd, organizationJsonLd } from "@/lib/seo";
 import hero from "@/assets/hero-diving.jpg";
 import nhaTrang from "@/assets/nha-trang.jpg";
 import phuQuoc from "@/assets/phu-quoc.jpg";
 import conDao from "@/assets/con-dao.jpg";
 import hoiAn from "@/assets/hoi-an.jpg";
 import { gygLink } from "@/lib/getyourguide";
+
+const HOME_FAQ = [
+  { q: "Is Vietnam good for scuba diving?", a: "Yes. Vietnam offers warm 26–30°C water year-round across four very different regions: Nha Trang's coral gardens, Phu Quoc's soft reefs, Con Dao's remote pelagic dives, and the Cham Islands' UNESCO biosphere reserve." },
+  { q: "When is the best time to dive in Vietnam?", a: "It depends on the region. Nha Trang and Cham/Hoi An: February–October. Phu Quoc: November–May. Con Dao: April–October. Vietnam's monsoons mean every coast has its own season." },
+  { q: "How much does diving in Vietnam cost?", a: "Two-tank fun dives range $55–$140 depending on destination. PADI Open Water certification costs $300–$420. Discover Scuba experiences for non-divers start around $50." },
+  { q: "Do I need a dive certificate to dive in Vietnam?", a: "No — every featured destination offers Discover Scuba programs for non-certified visitors. To dive deeper than 12 m or unsupervised, you need at least PADI Open Water." },
+  { q: "Where is the best diving in Vietnam?", a: "Con Dao for pristine reefs and sea turtles, Nha Trang for biodiversity and beginner-friendly sites, Phu Quoc for relaxed soft-coral diving, and the Cham Islands for combining culture with diving." },
+];
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -17,6 +25,8 @@ export const Route = createFileRoute("/")({
         "The editorial guide to scuba diving in Vietnam. Compare Nha Trang, Phu Quoc, Con Dao and Hoi An — book PADI courses and dive tours with confidence.",
       image: "/og-home.jpg",
       path: "/",
+      keywords: "Vietnam diving, scuba diving Vietnam, Nha Trang diving, Phu Quoc diving, Con Dao diving, Cham Islands, PADI Vietnam, diving tours Vietnam",
+      jsonLd: [...organizationJsonLd(), faqJsonLd(HOME_FAQ)],
     }),
   component: Home,
 });
