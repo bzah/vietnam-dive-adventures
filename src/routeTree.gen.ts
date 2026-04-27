@@ -10,9 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToursRouteImport } from './routes/tours'
+import { Route as Sitemap_indexDotxmlRouteImport } from './routes/sitemap_index[.]xml'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as PageSitemapDotxmlRouteImport } from './routes/page-sitemap[.]xml'
 import { Route as GuidesRouteImport } from './routes/guides'
+import { Route as GuideSitemapDotxmlRouteImport } from './routes/guide-sitemap[.]xml'
+import { Route as DestinationSitemapDotxmlRouteImport } from './routes/destination-sitemap[.]xml'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -26,6 +30,11 @@ const ToursRoute = ToursRouteImport.update({
   path: '/tours',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Sitemap_indexDotxmlRoute = Sitemap_indexDotxmlRouteImport.update({
+  id: '/sitemap_index.xml',
+  path: '/sitemap_index.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -36,11 +45,27 @@ const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
   path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PageSitemapDotxmlRoute = PageSitemapDotxmlRouteImport.update({
+  id: '/page-sitemap.xml',
+  path: '/page-sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuidesRoute = GuidesRouteImport.update({
   id: '/guides',
   path: '/guides',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuideSitemapDotxmlRoute = GuideSitemapDotxmlRouteImport.update({
+  id: '/guide-sitemap.xml',
+  path: '/guide-sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DestinationSitemapDotxmlRoute =
+  DestinationSitemapDotxmlRouteImport.update({
+    id: '/destination-sitemap.xml',
+    path: '/destination-sitemap.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -81,9 +106,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/destination-sitemap.xml': typeof DestinationSitemapDotxmlRoute
+  '/guide-sitemap.xml': typeof GuideSitemapDotxmlRoute
   '/guides': typeof GuidesRouteWithChildren
+  '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sitemap_index.xml': typeof Sitemap_indexDotxmlRoute
   '/tours': typeof ToursRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
@@ -94,9 +123,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/destination-sitemap.xml': typeof DestinationSitemapDotxmlRoute
+  '/guide-sitemap.xml': typeof GuideSitemapDotxmlRoute
   '/guides': typeof GuidesRouteWithChildren
+  '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sitemap_index.xml': typeof Sitemap_indexDotxmlRoute
   '/tours': typeof ToursRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
@@ -108,9 +141,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/destination-sitemap.xml': typeof DestinationSitemapDotxmlRoute
+  '/guide-sitemap.xml': typeof GuideSitemapDotxmlRoute
   '/guides': typeof GuidesRouteWithChildren
+  '/page-sitemap.xml': typeof PageSitemapDotxmlRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sitemap_index.xml': typeof Sitemap_indexDotxmlRoute
   '/tours': typeof ToursRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
@@ -123,9 +160,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/destination-sitemap.xml'
+    | '/guide-sitemap.xml'
     | '/guides'
+    | '/page-sitemap.xml'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/sitemap_index.xml'
     | '/tours'
     | '/destinations/$slug'
     | '/guides/best-time-to-dive'
@@ -136,9 +177,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/destination-sitemap.xml'
+    | '/guide-sitemap.xml'
     | '/guides'
+    | '/page-sitemap.xml'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/sitemap_index.xml'
     | '/tours'
     | '/destinations/$slug'
     | '/guides/best-time-to-dive'
@@ -149,9 +194,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/destination-sitemap.xml'
+    | '/guide-sitemap.xml'
     | '/guides'
+    | '/page-sitemap.xml'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/sitemap_index.xml'
     | '/tours'
     | '/destinations/$slug'
     | '/guides/best-time-to-dive'
@@ -163,9 +212,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DestinationSitemapDotxmlRoute: typeof DestinationSitemapDotxmlRoute
+  GuideSitemapDotxmlRoute: typeof GuideSitemapDotxmlRoute
   GuidesRoute: typeof GuidesRouteWithChildren
+  PageSitemapDotxmlRoute: typeof PageSitemapDotxmlRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  Sitemap_indexDotxmlRoute: typeof Sitemap_indexDotxmlRoute
   ToursRoute: typeof ToursRoute
   DestinationsSlugRoute: typeof DestinationsSlugRoute
 }
@@ -177,6 +230,13 @@ declare module '@tanstack/react-router' {
       path: '/tours'
       fullPath: '/tours'
       preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap_index.xml': {
+      id: '/sitemap_index.xml'
+      path: '/sitemap_index.xml'
+      fullPath: '/sitemap_index.xml'
+      preLoaderRoute: typeof Sitemap_indexDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -193,11 +253,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/page-sitemap.xml': {
+      id: '/page-sitemap.xml'
+      path: '/page-sitemap.xml'
+      fullPath: '/page-sitemap.xml'
+      preLoaderRoute: typeof PageSitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides': {
       id: '/guides'
       path: '/guides'
       fullPath: '/guides'
       preLoaderRoute: typeof GuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide-sitemap.xml': {
+      id: '/guide-sitemap.xml'
+      path: '/guide-sitemap.xml'
+      fullPath: '/guide-sitemap.xml'
+      preLoaderRoute: typeof GuideSitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destination-sitemap.xml': {
+      id: '/destination-sitemap.xml'
+      path: '/destination-sitemap.xml'
+      fullPath: '/destination-sitemap.xml'
+      preLoaderRoute: typeof DestinationSitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -271,9 +352,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DestinationSitemapDotxmlRoute: DestinationSitemapDotxmlRoute,
+  GuideSitemapDotxmlRoute: GuideSitemapDotxmlRoute,
   GuidesRoute: GuidesRouteWithChildren,
+  PageSitemapDotxmlRoute: PageSitemapDotxmlRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  Sitemap_indexDotxmlRoute: Sitemap_indexDotxmlRoute,
   ToursRoute: ToursRoute,
   DestinationsSlugRoute: DestinationsSlugRoute,
 }

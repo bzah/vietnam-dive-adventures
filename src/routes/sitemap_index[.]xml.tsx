@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { buildIndex, XML_HEADERS } from "@/lib/sitemap-data";
 
-// Alias for /sitemap.xml -> same index (Rank Math compatibility)
-export const Route = createFileRoute("/sitemap.xml")({
+export const Route = createFileRoute("/sitemap_index.xml")({
   server: {
     handlers: {
       GET: async () => new Response(buildIndex(), { headers: XML_HEADERS }),
