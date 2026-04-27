@@ -1,13 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { pageHead } from "@/lib/seo";
+import { pageHead, faqJsonLd, organizationJsonLd } from "@/lib/seo";
 import hero from "@/assets/hero-diving.jpg";
 import nhaTrang from "@/assets/nha-trang.jpg";
 import phuQuoc from "@/assets/phu-quoc.jpg";
 import conDao from "@/assets/con-dao.jpg";
 import hoiAn from "@/assets/hoi-an.jpg";
 import { gygLink } from "@/lib/getyourguide";
+
+const HOME_FAQ = [
+  { q: "Is Vietnam good for scuba diving?", a: "Yes. Vietnam offers warm 26–30°C water year-round across four very different regions: Nha Trang's coral gardens, Phu Quoc's soft reefs, Con Dao's remote pelagic dives, and the Cham Islands' UNESCO biosphere reserve." },
+  { q: "When is the best time to dive in Vietnam?", a: "It depends on the region. Nha Trang and Cham/Hoi An: February–October. Phu Quoc: November–May. Con Dao: April–October. Vietnam's monsoons mean every coast has its own season." },
+  { q: "How much does diving in Vietnam cost?", a: "Two-tank fun dives range $55–$140 depending on destination. PADI Open Water certification costs $300–$420. Discover Scuba experiences for non-divers start around $50." },
+  { q: "Do I need a dive certificate to dive in Vietnam?", a: "No — every featured destination offers Discover Scuba programs for non-certified visitors. To dive deeper than 12 m or unsupervised, you need at least PADI Open Water." },
+  { q: "Where is the best diving in Vietnam?", a: "Con Dao for pristine reefs and sea turtles, Nha Trang for biodiversity and beginner-friendly sites, Phu Quoc for relaxed soft-coral diving, and the Cham Islands for combining culture with diving." },
+];
 
 export const Route = createFileRoute("/")({
   head: () =>
@@ -17,6 +25,8 @@ export const Route = createFileRoute("/")({
         "The editorial guide to scuba diving in Vietnam. Compare Nha Trang, Phu Quoc, Con Dao and Hoi An — book PADI courses and dive tours with confidence.",
       image: "/og-home.jpg",
       path: "/",
+      keywords: "Vietnam diving, scuba diving Vietnam, Nha Trang diving, Phu Quoc diving, Con Dao diving, Cham Islands, PADI Vietnam, diving tours Vietnam",
+      jsonLd: [...organizationJsonLd(), faqJsonLd(HOME_FAQ)],
     }),
   component: Home,
 });
@@ -161,6 +171,42 @@ function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* WHY VIETNAM — SEO body */}
+      <section className="mx-auto max-w-4xl px-6 py-24">
+        <span className="eyebrow">Why Vietnam</span>
+        <h2 className="mt-3 text-4xl md:text-5xl">A 3,260 km coastline. Four diving worlds.</h2>
+        <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
+          <p>
+            Vietnam is one of Southeast Asia's most underrated scuba diving destinations. Tucked between the better-known reefs of Thailand and the Philippines, Vietnam's 3,260 km coastline shelters over <strong className="text-foreground">350 species of hard coral</strong>, four marine protected areas, and reefs that remain remarkably uncrowded compared to neighbouring countries.
+          </p>
+          <p>
+            The country's geography creates four distinct dive regions, each with its own monsoon window. <Link to="/destinations/$slug" params={{ slug: "nha-trang" }} className="text-coral underline">Nha Trang</Link> on the south-central coast is Vietnam's diving capital, with the Hon Mun Marine Protected Area and easy access from Cam Ranh Airport. <Link to="/destinations/$slug" params={{ slug: "phu-quoc" }} className="text-coral underline">Phu Quoc</Link> in the Gulf of Thailand offers the warmest, calmest water in the country — perfect for beginners and snorkelers.
+          </p>
+          <p>
+            Further offshore, <Link to="/destinations/$slug" params={{ slug: "con-dao" }} className="text-coral underline">Con Dao</Link> is Vietnam's wildest diving frontier — a national park archipelago famous for green sea turtles, granite walls, and visibility that exceeds 25 metres. And in the centre, the <Link to="/destinations/$slug" params={{ slug: "hoi-an" }} className="text-coral underline">Cham Islands</Link> off Hoi An form a UNESCO Biosphere Reserve, ideal for combining culture and diving in a single trip.
+          </p>
+          <p>
+            Whether you're looking to <Link to="/guides/padi-courses" className="text-coral underline">earn your PADI Open Water</Link>, time your trip with <Link to="/guides/best-time-to-dive" className="text-coral underline">Vietnam's monsoon seasons</Link>, or simply book a half-day discovery dive, this site is your editorial guide.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-sand py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <span className="eyebrow">FAQ</span>
+          <h2 className="mt-3 text-4xl md:text-5xl">Diving in Vietnam — the basics.</h2>
+          <dl className="mt-12 space-y-8">
+            {HOME_FAQ.map((item) => (
+              <div key={item.q} className="border-b border-border pb-8">
+                <dt className="font-display text-2xl">{item.q}</dt>
+                <dd className="mt-3 text-lg leading-relaxed text-muted-foreground">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 

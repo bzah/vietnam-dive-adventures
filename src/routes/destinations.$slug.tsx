@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { pageHead } from "@/lib/seo";
+import { pageHead, faqJsonLd, destinationJsonLd, SITE } from "@/lib/seo";
 import { searchGygTours } from "@/lib/gyg.functions";
 import { TourCard, FallbackTourGrid } from "@/components/TourCard";
 import { gygLink } from "@/lib/getyourguide";
@@ -22,6 +22,9 @@ interface Destination {
   query: string;
   seo_title: string;
   seo_desc: string;
+  keywords: string;
+  faq: Array<{ q: string; a: string }>;
+  sites: Array<{ name: string; depth: string; level: string; highlight: string }>;
 }
 
 const DEST: Record<string, Destination> = {
@@ -46,6 +49,18 @@ const DEST: Record<string, Destination> = {
     query: "Nha Trang diving",
     seo_title: "Scuba Diving in Nha Trang Vietnam — Guide & Tours | VietnamDiving.com",
     seo_desc: "Complete guide to scuba diving in Nha Trang, Vietnam. Hon Mun Marine Park, top dive sites, PADI courses, season, and live tours from $25.",
+    keywords: "Nha Trang diving, Hon Mun, scuba Vietnam, PADI Nha Trang, Vinpearl diving, Madonna Rock",
+    sites: [
+      { name: "Madonna Rock", depth: "8–18 m", level: "Open Water", highlight: "Swim-throughs & soft corals" },
+      { name: "Moray Beach", depth: "5–14 m", level: "All levels", highlight: "Macro photography paradise" },
+      { name: "Mama Hanh Beach", depth: "4–10 m", level: "Beginner", highlight: "Try-dives & courses" },
+      { name: "Russian Wreck", depth: "20–30 m", level: "Advanced", highlight: "Penetration dive" },
+    ],
+    faq: [
+      { q: "Is Nha Trang good for beginners?", a: "Yes. Hon Mun's sheltered bays and 26–29°C water make Nha Trang Vietnam's top spot for first-time divers and PADI Open Water courses." },
+      { q: "How much does diving in Nha Trang cost?", a: "Two-tank fun dives start around $55. PADI Open Water certifications run $300–$420 over 3 days. Discover Scuba experiences from $50." },
+      { q: "When is the best time to dive Nha Trang?", a: "February through October. Visibility peaks April–August. Avoid November–January when monsoon storms reduce visibility." },
+    ],
   },
   "phu-quoc": {
     slug: "phu-quoc",
@@ -68,6 +83,18 @@ const DEST: Record<string, Destination> = {
     query: "Phu Quoc diving",
     seo_title: "Scuba Diving in Phu Quoc Vietnam — Guide & Tours | VietnamDiving.com",
     seo_desc: "Diving Phu Quoc Vietnam: An Thoi archipelago, soft coral reefs, season, top sites, PADI dive centres and live booking from VietnamDiving.com.",
+    keywords: "Phu Quoc diving, An Thoi diving, Vietnam island diving, snorkeling Phu Quoc, Hon Thom",
+    sites: [
+      { name: "Hon Dam Ngang", depth: "6–14 m", level: "Beginner", highlight: "Soft coral gardens" },
+      { name: "Hon Thom", depth: "8–16 m", level: "Open Water", highlight: "Swim-throughs" },
+      { name: "Hon Mong Tay", depth: "5–12 m", level: "Snorkel/Beginner", highlight: "Anemone fields" },
+      { name: "Hon Dam Trong", depth: "10–20 m", level: "Advanced", highlight: "Drift dive, eagle rays" },
+    ],
+    faq: [
+      { q: "Can you dive in Phu Quoc year-round?", a: "No. Phu Quoc's diving season runs November to May. The southwest monsoon closes most operators June–October." },
+      { q: "Is Phu Quoc better than Nha Trang for diving?", a: "Phu Quoc has warmer water and softer corals; Nha Trang has more dive sites and biodiversity. Phu Quoc is best for relaxed Caribbean-style diving." },
+      { q: "Do I need certification to dive Phu Quoc?", a: "No — most operators offer Discover Scuba experiences for non-divers from $60, including a beginner-friendly shallow dive." },
+    ],
   },
   "con-dao": {
     slug: "con-dao",
@@ -90,6 +117,18 @@ const DEST: Record<string, Destination> = {
     query: "Con Dao diving",
     seo_title: "Scuba Diving in Con Dao Vietnam — Remote Reefs & Turtles | VietnamDiving.com",
     seo_desc: "Con Dao is Vietnam's premier remote dive destination. Sea turtles, granite walls, and pristine reefs. Full guide, season, and live tours.",
+    keywords: "Con Dao diving, sea turtles Vietnam, Con Son diving, Vietnam national park diving, dugong Vietnam",
+    sites: [
+      { name: "Hon Bay Canh", depth: "10–22 m", level: "Open Water", highlight: "Green sea turtles" },
+      { name: "Hon Tre Lon", depth: "12–28 m", level: "Advanced", highlight: "Granite walls" },
+      { name: "Hon Trac", depth: "8–18 m", level: "Open Water", highlight: "Reef sharks, soft coral" },
+      { name: "Shark Cave", depth: "18–30 m", level: "Advanced+", highlight: "White-tip reef sharks" },
+    ],
+    faq: [
+      { q: "Can you see turtles diving in Con Dao?", a: "Yes. Con Dao is one of Southeast Asia's most important green sea turtle nesting grounds. Sightings are common June through September." },
+      { q: "How do I get to Con Dao?", a: "Vietnam Airlines and Bamboo Airways fly daily from Ho Chi Minh City to Con Dao Airport (VCS) — flights take ~50 minutes." },
+      { q: "Is Con Dao expensive?", a: "Yes — Con Dao is Vietnam's most expensive dive destination. Two-tank dives run $90–$140, but visibility and marine life justify the cost." },
+    ],
   },
   "hoi-an": {
     slug: "hoi-an",
@@ -112,6 +151,18 @@ const DEST: Record<string, Destination> = {
     query: "Hoi An diving Cham islands",
     seo_title: "Diving Cham Islands & Hoi An Vietnam — Guide & Tours | VietnamDiving.com",
     seo_desc: "Diving the Cham Islands from Hoi An: UNESCO marine reserve, top sites, season, and live booking. Pair scuba with central Vietnam's most beautiful town.",
+    keywords: "Hoi An diving, Cham Islands diving, Cu Lao Cham, Da Nang diving, snorkeling Hoi An",
+    sites: [
+      { name: "Bai Bac", depth: "6–14 m", level: "Beginner", highlight: "Soft corals, easy entry" },
+      { name: "Hon Tai", depth: "8–16 m", level: "Open Water", highlight: "Macro & nudibranchs" },
+      { name: "Tan Hiep Wreck", depth: "16–24 m", level: "Advanced", highlight: "Wartime wreck dive" },
+      { name: "Hon Mo", depth: "5–12 m", level: "Snorkel/Beginner", highlight: "Coral reef snorkeling" },
+    ],
+    faq: [
+      { q: "Can you dive from Hoi An itself?", a: "Diving departs from Cua Dai pier near Hoi An, with boats reaching the Cham Islands in 30–45 minutes. Most operators offer free Hoi An hotel pickup." },
+      { q: "When is Cham Islands diving season?", a: "March through September. October–February brings rough seas and most operators suspend trips." },
+      { q: "Is Cham Islands good for snorkeling?", a: "Excellent. Shallow reefs at Bai Bac and Hon Mo are perfect for snorkeling, with combo snorkel-and-island-tour packages from $30." },
+    ],
   },
 };
 
@@ -124,11 +175,28 @@ export const Route = createFileRoute("/destinations/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [{ title: "Destination" }] };
+    const d = loaderData.dest;
+    const path = `/destinations/${d.slug}`;
     return pageHead({
-      title: loaderData.dest.seo_title,
-      description: loaderData.dest.seo_desc,
-      image: loaderData.dest.img,
-      path: `/destinations/${loaderData.dest.slug}`,
+      title: d.seo_title,
+      description: d.seo_desc,
+      image: d.img,
+      path,
+      keywords: d.keywords,
+      type: "article",
+      jsonLd: [
+        destinationJsonLd({ name: d.name, description: d.seo_desc, image: d.img, url: `${SITE.url}${path}` }),
+        faqJsonLd(d.faq),
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+            { "@type": "ListItem", position: 2, name: "Destinations", item: `${SITE.url}/` },
+            { "@type": "ListItem", position: 3, name: d.name, item: `${SITE.url}${path}` },
+          ],
+        },
+      ],
     });
   },
   component: DestinationPage,
@@ -213,6 +281,70 @@ function DestinationPage() {
             <FallbackTourGrid query={dest.query} />
           )}
           {error && <p className="mt-6 text-center text-xs text-muted-foreground">{error}</p>}
+        </div>
+      </section>
+
+      {/* Top dive sites table */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <span className="eyebrow">The dive map</span>
+        <h2 className="mt-3 text-4xl md:text-5xl">Top dive sites in {dest.name}</h2>
+        <div className="mt-10 overflow-hidden rounded-sm border border-border">
+          <table className="w-full text-left text-sm">
+            <thead className="bg-sand">
+              <tr>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Site</th>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Depth</th>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Level</th>
+                <th className="p-4 font-medium uppercase tracking-[0.14em]">Highlight</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dest.sites.map((s) => (
+                <tr key={s.name} className="border-t border-border">
+                  <td className="p-4 font-display text-lg">{s.name}</td>
+                  <td className="p-4 text-muted-foreground">{s.depth}</td>
+                  <td className="p-4 text-muted-foreground">{s.level}</td>
+                  <td className="p-4">{s.highlight}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-sand py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <span className="eyebrow">FAQ</span>
+          <h2 className="mt-3 text-4xl md:text-5xl">Frequently asked.</h2>
+          <dl className="mt-12 space-y-8">
+            {dest.faq.map((item) => (
+              <div key={item.q} className="border-b border-border pb-8">
+                <dt className="font-display text-2xl">{item.q}</dt>
+                <dd className="mt-3 text-lg leading-relaxed text-muted-foreground">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Internal links */}
+      <section className="mx-auto max-w-5xl px-6 py-20">
+        <span className="eyebrow">Keep reading</span>
+        <h2 className="mt-3 text-3xl md:text-4xl">Plan the rest of your trip</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <Link to="/guides/padi-courses" className="group block border-t border-border pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
+            <p className="mt-2 text-lg group-hover:text-coral">PADI courses in Vietnam</p>
+          </Link>
+          <Link to="/guides/best-time-to-dive" className="group block border-t border-border pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
+            <p className="mt-2 text-lg group-hover:text-coral">Best time to dive Vietnam</p>
+          </Link>
+          <Link to="/guides/dive-medical" className="group block border-t border-border pt-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
+            <p className="mt-2 text-lg group-hover:text-coral">Dive medical certificate</p>
+          </Link>
         </div>
       </section>
 
