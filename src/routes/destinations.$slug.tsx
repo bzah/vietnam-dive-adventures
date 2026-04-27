@@ -219,50 +219,50 @@ function DestinationPage() {
       <SiteHeader />
 
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[480px] overflow-hidden">
+      <section className="relative h-[62vh] min-h-[420px] overflow-hidden sm:h-[70vh] sm:min-h-[480px]">
         <img src={dest.img} alt={dest.name} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/10 via-ink/30 to-ink/80" />
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-16 text-primary-foreground">
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-10 text-primary-foreground sm:px-6 sm:pb-16">
           <span className="eyebrow !text-coral">{dest.region}</span>
-          <h1 className="mt-4 text-6xl md:text-8xl">{dest.name}</h1>
-          <p className="mt-6 max-w-2xl font-display text-2xl italic md:text-3xl">{dest.hero_quote}</p>
+          <h1 className="mt-3 text-5xl leading-[1.02] sm:mt-4 sm:text-6xl md:text-8xl">{dest.name}</h1>
+          <p className="mt-4 max-w-2xl font-display text-xl italic sm:mt-6 sm:text-2xl md:text-3xl">{dest.hero_quote}</p>
         </div>
       </section>
 
       {/* Facts strip */}
       <section className="border-b border-border bg-sand">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-8 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 px-5 py-7 sm:gap-6 sm:px-6 sm:py-8 md:grid-cols-4">
           {dest.facts.map((f) => (
             <div key={f.k}>
               <p className="eyebrow">{f.k}</p>
-              <p className="mt-1 font-display text-2xl">{f.v}</p>
+              <p className="mt-1 font-display text-xl sm:text-2xl">{f.v}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Editorial body */}
-      <article className="mx-auto max-w-3xl px-6 py-24">
-        <p className="font-display text-2xl leading-relaxed text-foreground/85 md:text-3xl">
+      <article className="mx-auto max-w-3xl px-5 py-16 sm:px-6 sm:py-24">
+        <p className="font-display text-xl leading-relaxed text-foreground/85 sm:text-2xl md:text-3xl">
           {dest.intro}
         </p>
-        <div className="mt-16 space-y-12">
+        <div className="mt-12 space-y-10 sm:mt-16 sm:space-y-12">
           {dest.body.map((b) => (
             <section key={b.heading}>
-              <h2 className="text-3xl">{b.heading}</h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{b.text}</p>
+              <h2 className="text-2xl sm:text-3xl">{b.heading}</h2>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">{b.text}</p>
             </section>
           ))}
         </div>
       </article>
 
       {/* Tours */}
-      <section className="bg-muted/40 py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12 flex items-end justify-between">
+      <section className="bg-muted/40 py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
+          <div className="mb-10 flex items-end justify-between sm:mb-12">
             <div>
               <span className="eyebrow">Bookable now</span>
-              <h2 className="mt-2 text-4xl md:text-5xl">Diving tours in {dest.name}</h2>
+              <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl">Diving tours in {dest.name}</h2>
             </div>
             <a
               href={gygLink({ query: dest.query })}
@@ -274,7 +274,7 @@ function DestinationPage() {
             </a>
           </div>
           {tours.length > 0 ? (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
               {tours.map((t) => <TourCard key={t.id} tour={t} />)}
             </div>
           ) : (
@@ -285,43 +285,45 @@ function DestinationPage() {
       </section>
 
       {/* Top dive sites table */}
-      <section className="mx-auto max-w-5xl px-6 py-24">
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-24">
         <span className="eyebrow">The dive map</span>
-        <h2 className="mt-3 text-4xl md:text-5xl">Top dive sites in {dest.name}</h2>
-        <div className="mt-10 overflow-hidden rounded-sm border border-border">
-          <table className="w-full text-left text-sm">
-            <thead className="bg-sand">
-              <tr>
-                <th className="p-4 font-medium uppercase tracking-[0.14em]">Site</th>
-                <th className="p-4 font-medium uppercase tracking-[0.14em]">Depth</th>
-                <th className="p-4 font-medium uppercase tracking-[0.14em]">Level</th>
-                <th className="p-4 font-medium uppercase tracking-[0.14em]">Highlight</th>
-              </tr>
-            </thead>
-            <tbody>
-              {dest.sites.map((s) => (
-                <tr key={s.name} className="border-t border-border">
-                  <td className="p-4 font-display text-lg">{s.name}</td>
-                  <td className="p-4 text-muted-foreground">{s.depth}</td>
-                  <td className="p-4 text-muted-foreground">{s.level}</td>
-                  <td className="p-4">{s.highlight}</td>
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Top dive sites in {dest.name}</h2>
+        <div className="mt-8 -mx-5 overflow-x-auto sm:mx-0 sm:mt-10">
+          <div className="min-w-[640px] overflow-hidden border-y border-border sm:rounded-sm sm:border">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-sand">
+                <tr>
+                  <th className="p-4 font-medium uppercase tracking-[0.14em]">Site</th>
+                  <th className="p-4 font-medium uppercase tracking-[0.14em]">Depth</th>
+                  <th className="p-4 font-medium uppercase tracking-[0.14em]">Level</th>
+                  <th className="p-4 font-medium uppercase tracking-[0.14em]">Highlight</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {dest.sites.map((s) => (
+                  <tr key={s.name} className="border-t border-border">
+                    <td className="p-4 font-display text-lg">{s.name}</td>
+                    <td className="p-4 text-muted-foreground">{s.depth}</td>
+                    <td className="p-4 text-muted-foreground">{s.level}</td>
+                    <td className="p-4">{s.highlight}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="bg-sand py-24">
-        <div className="mx-auto max-w-3xl px-6">
+      <section className="bg-sand py-16 sm:py-24">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6">
           <span className="eyebrow">FAQ</span>
-          <h2 className="mt-3 text-4xl md:text-5xl">Frequently asked.</h2>
-          <dl className="mt-12 space-y-8">
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Frequently asked.</h2>
+          <dl className="mt-10 space-y-6 sm:mt-12 sm:space-y-8">
             {dest.faq.map((item) => (
-              <div key={item.q} className="border-b border-border pb-8">
-                <dt className="font-display text-2xl">{item.q}</dt>
-                <dd className="mt-3 text-lg leading-relaxed text-muted-foreground">{item.a}</dd>
+              <div key={item.q} className="border-b border-border pb-6 sm:pb-8">
+                <dt className="font-display text-xl sm:text-2xl">{item.q}</dt>
+                <dd className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">{item.a}</dd>
               </div>
             ))}
           </dl>
@@ -329,10 +331,10 @@ function DestinationPage() {
       </section>
 
       {/* Internal links */}
-      <section className="mx-auto max-w-5xl px-6 py-20">
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20">
         <span className="eyebrow">Keep reading</span>
-        <h2 className="mt-3 text-3xl md:text-4xl">Plan the rest of your trip</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+        <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl">Plan the rest of your trip</h2>
+        <div className="mt-6 grid gap-5 sm:mt-8 sm:grid-cols-3 sm:gap-6">
           <Link to="/guides/padi-courses" className="group block border-t border-border pt-4">
             <p className="text-xs uppercase tracking-[0.16em] text-coral">Guide</p>
             <p className="mt-2 text-lg group-hover:text-coral">PADI courses in Vietnam</p>
