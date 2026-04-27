@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -37,6 +38,14 @@ function AboutPage() {
             <li>If we get something wrong, <Link to="/contact" className="text-coral underline">tell us</Link> — we'll fix it.</li>
           </ul>
         </div>
+        <AffiliateCTA
+          query="Vietnam diving"
+          eyebrow="Support our editorial work"
+          title="Book your dive trip through us"
+          body="Every tour, course or snorkeling trip you book through our GetYourGuide links earns us a small commission at no extra cost to you. It funds independent reporting from Vietnam's coastlines — and you get the same price, free cancellation, and 24/7 customer support."
+          ctaLabel="Browse all Vietnam dive tours"
+          variant="primary"
+        />
       </section>
       <SiteFooter />
     </div>

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { pageHead } from "@/lib/seo";
 import { gygLink } from "@/lib/getyourguide";
 
@@ -55,6 +56,15 @@ function ContactPage() {
             </button>
           </form>
         )}
+
+        <AffiliateCTA
+          query="Vietnam diving"
+          eyebrow="Don't want to wait?"
+          title="Skip the inbox — book a dive in Vietnam now"
+          body="Compare hundreds of diving and snorkeling tours, PADI Open Water courses and Discover Scuba experiences across Nha Trang, Phu Quoc, Con Dao and the Cham Islands. Live availability, instant booking, free cancellation."
+          ctaLabel="Browse Vietnam dive tours"
+          variant="sand"
+        />
       </main>
       <SiteFooter />
     </div>
