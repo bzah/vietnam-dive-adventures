@@ -72,7 +72,7 @@ export function SiteHeader() {
                 {d.label}
               </Link>
             ))}
-            {simpleNav.concat([{ to: "/contact" as const, label: "Contact" }]).map((n) => (
+            {[...simpleNav, { to: "/contact" as const, label: "Contact" }].map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="py-2 text-sm uppercase tracking-[0.14em]">
                 {n.label}
               </Link>
