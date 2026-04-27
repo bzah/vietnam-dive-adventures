@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 border-t border-border bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-4">
+    <footer className="mt-20 border-t border-border bg-primary text-primary-foreground sm:mt-32">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <h3 className="font-display text-3xl">
               Vietnam<span className="italic text-coral">Diving</span>

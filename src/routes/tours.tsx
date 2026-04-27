@@ -25,16 +25,16 @@ function ToursPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <section className="mx-auto max-w-7xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-20">
         <span className="eyebrow">Live tours</span>
-        <h1 className="mt-3 text-5xl md:text-7xl">Diving tours in Vietnam.</h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+        <h1 className="mt-3 text-4xl sm:text-5xl md:text-7xl">Diving tours in Vietnam.</h1>
+        <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:mt-6 sm:text-lg">
           Curated dives, snorkeling trips, and PADI courses — bookable instantly through our partner GetYourGuide. Prices in USD.
         </p>
       </section>
-      <section className="mx-auto max-w-7xl px-6 pb-32">
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-32">
         {tours.length > 0 ? (
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
             {tours.map((t) => <TourCard key={t.id} tour={t} />)}
           </div>
         ) : (

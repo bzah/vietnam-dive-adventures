@@ -21,10 +21,10 @@ export function SiteHeader() {
     "text-[13px] font-medium uppercase tracking-[0.14em] text-foreground/75 transition-colors hover:text-coral";
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="VietnamDiving.com logo" width={36} height={36} className="h-9 w-9" />
-          <span className="font-display text-2xl font-medium tracking-tight">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 sm:py-4">
+        <Link to="/" className="flex items-center gap-2 sm:gap-3">
+          <img src={logo} alt="VietnamDiving.com logo" width={36} height={36} className="h-8 w-8 sm:h-9 sm:w-9" />
+          <span className="font-display text-xl font-medium tracking-tight sm:text-2xl">
             Vietnam<span className="text-coral italic">Diving</span>
           </span>
         </Link>
