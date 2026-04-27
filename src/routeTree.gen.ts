@@ -9,12 +9,34 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ToursRouteImport } from './routes/tours'
+import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuidesPadiCoursesRouteImport } from './routes/guides.padi-courses'
+import { Route as GuidesDiveMedicalRouteImport } from './routes/guides.dive-medical'
+import { Route as GuidesBestTimeToDiveRouteImport } from './routes/guides.best-time-to-dive'
+import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 
+const ToursRoute = ToursRouteImport.update({
+  id: '/tours',
+  path: '/tours',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesRoute = GuidesRouteImport.update({
+  id: '/guides',
+  path: '/guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +44,134 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuidesPadiCoursesRoute = GuidesPadiCoursesRouteImport.update({
+  id: '/padi-courses',
+  path: '/padi-courses',
+  getParentRoute: () => GuidesRoute,
+} as any)
+const GuidesDiveMedicalRoute = GuidesDiveMedicalRouteImport.update({
+  id: '/dive-medical',
+  path: '/dive-medical',
+  getParentRoute: () => GuidesRoute,
+} as any)
+const GuidesBestTimeToDiveRoute = GuidesBestTimeToDiveRouteImport.update({
+  id: '/best-time-to-dive',
+  path: '/best-time-to-dive',
+  getParentRoute: () => GuidesRoute,
+} as any)
+const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
+  id: '/destinations/$slug',
+  path: '/destinations/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/guides': typeof GuidesRouteWithChildren
+  '/tours': typeof ToursRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
+  '/guides/dive-medical': typeof GuidesDiveMedicalRoute
+  '/guides/padi-courses': typeof GuidesPadiCoursesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/guides': typeof GuidesRouteWithChildren
+  '/tours': typeof ToursRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
+  '/guides/dive-medical': typeof GuidesDiveMedicalRoute
+  '/guides/padi-courses': typeof GuidesPadiCoursesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/guides': typeof GuidesRouteWithChildren
+  '/tours': typeof ToursRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
+  '/guides/best-time-to-dive': typeof GuidesBestTimeToDiveRoute
+  '/guides/dive-medical': typeof GuidesDiveMedicalRoute
+  '/guides/padi-courses': typeof GuidesPadiCoursesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/guides'
+    | '/tours'
+    | '/destinations/$slug'
+    | '/guides/best-time-to-dive'
+    | '/guides/dive-medical'
+    | '/guides/padi-courses'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact'
-  id: '__root__' | '/' | '/contact'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/guides'
+    | '/tours'
+    | '/destinations/$slug'
+    | '/guides/best-time-to-dive'
+    | '/guides/dive-medical'
+    | '/guides/padi-courses'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/guides'
+    | '/tours'
+    | '/destinations/$slug'
+    | '/guides/best-time-to-dive'
+    | '/guides/dive-medical'
+    | '/guides/padi-courses'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  GuidesRoute: typeof GuidesRouteWithChildren
+  ToursRoute: typeof ToursRoute
+  DestinationsSlugRoute: typeof DestinationsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tours': {
+      id: '/tours'
+      path: '/tours'
+      fullPath: '/tours'
+      preLoaderRoute: typeof ToursRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides': {
+      id: '/guides'
+      path: '/guides'
+      fullPath: '/guides'
+      preLoaderRoute: typeof GuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,12 +181,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guides/padi-courses': {
+      id: '/guides/padi-courses'
+      path: '/padi-courses'
+      fullPath: '/guides/padi-courses'
+      preLoaderRoute: typeof GuidesPadiCoursesRouteImport
+      parentRoute: typeof GuidesRoute
+    }
+    '/guides/dive-medical': {
+      id: '/guides/dive-medical'
+      path: '/dive-medical'
+      fullPath: '/guides/dive-medical'
+      preLoaderRoute: typeof GuidesDiveMedicalRouteImport
+      parentRoute: typeof GuidesRoute
+    }
+    '/guides/best-time-to-dive': {
+      id: '/guides/best-time-to-dive'
+      path: '/best-time-to-dive'
+      fullPath: '/guides/best-time-to-dive'
+      preLoaderRoute: typeof GuidesBestTimeToDiveRouteImport
+      parentRoute: typeof GuidesRoute
+    }
+    '/destinations/$slug': {
+      id: '/destinations/$slug'
+      path: '/destinations/$slug'
+      fullPath: '/destinations/$slug'
+      preLoaderRoute: typeof DestinationsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface GuidesRouteChildren {
+  GuidesBestTimeToDiveRoute: typeof GuidesBestTimeToDiveRoute
+  GuidesDiveMedicalRoute: typeof GuidesDiveMedicalRoute
+  GuidesPadiCoursesRoute: typeof GuidesPadiCoursesRoute
+}
+
+const GuidesRouteChildren: GuidesRouteChildren = {
+  GuidesBestTimeToDiveRoute: GuidesBestTimeToDiveRoute,
+  GuidesDiveMedicalRoute: GuidesDiveMedicalRoute,
+  GuidesPadiCoursesRoute: GuidesPadiCoursesRoute,
+}
+
+const GuidesRouteWithChildren =
+  GuidesRoute._addFileChildren(GuidesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  GuidesRoute: GuidesRouteWithChildren,
+  ToursRoute: ToursRoute,
+  DestinationsSlugRoute: DestinationsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

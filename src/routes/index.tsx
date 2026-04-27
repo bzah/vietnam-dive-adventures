@@ -53,7 +53,8 @@ function Home() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              to="/destinations/nha-trang"
+              to="/destinations/$slug"
+              params={{ slug: "nha-trang" }}
               className="rounded-sm bg-coral px-7 py-4 text-sm font-medium uppercase tracking-[0.16em] text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
               Explore Destinations

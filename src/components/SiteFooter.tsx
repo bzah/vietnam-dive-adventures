@@ -16,10 +16,10 @@ export function SiteFooter() {
           <div>
             <p className="eyebrow !text-primary-foreground/60">Destinations</p>
             <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/destinations/nha-trang" className="hover:text-coral">Nha Trang</Link></li>
-              <li><Link to="/destinations/phu-quoc" className="hover:text-coral">Phu Quoc</Link></li>
-              <li><Link to="/destinations/con-dao" className="hover:text-coral">Con Dao</Link></li>
-              <li><Link to="/destinations/hoi-an" className="hover:text-coral">Hoi An & Cham</Link></li>
+              <li><Link to="/destinations/$slug" params={{ slug: "nha-trang" }} className="hover:text-coral">Nha Trang</Link></li>
+              <li><Link to="/destinations/$slug" params={{ slug: "phu-quoc" }} className="hover:text-coral">Phu Quoc</Link></li>
+              <li><Link to="/destinations/$slug" params={{ slug: "con-dao" }} className="hover:text-coral">Con Dao</Link></li>
+              <li><Link to="/destinations/$slug" params={{ slug: "hoi-an" }} className="hover:text-coral">Hoi An & Cham</Link></li>
             </ul>
           </div>
           <div>
