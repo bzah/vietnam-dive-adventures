@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { pageHead } from "@/lib/seo";
+import { pageHead, faqJsonLd, destinationJsonLd, SITE } from "@/lib/seo";
 import { searchGygTours } from "@/lib/gyg.functions";
 import { TourCard, FallbackTourGrid } from "@/components/TourCard";
 import { gygLink } from "@/lib/getyourguide";
@@ -22,6 +22,9 @@ interface Destination {
   query: string;
   seo_title: string;
   seo_desc: string;
+  keywords: string;
+  faq: Array<{ q: string; a: string }>;
+  sites: Array<{ name: string; depth: string; level: string; highlight: string }>;
 }
 
 const DEST: Record<string, Destination> = {
