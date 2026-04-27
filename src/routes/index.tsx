@@ -44,7 +44,7 @@ function Home() {
       <SiteHeader />
 
       {/* HERO */}
-      <section className="relative h-[92vh] min-h-[640px] w-full overflow-hidden">
+      <section className="relative h-[78vh] min-h-[520px] w-full overflow-hidden sm:h-[88vh] sm:min-h-[640px]">
         <img
           src={hero}
           alt="Scuba diver exploring a vibrant coral reef in Vietnam"
@@ -53,25 +53,25 @@ function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/30 to-ink/80" />
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 text-primary-foreground">
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-5 pb-12 text-primary-foreground sm:px-6 sm:pb-20">
           <span className="eyebrow !text-coral">Issue 01 — Underwater Vietnam</span>
-          <h1 className="mt-6 max-w-4xl text-6xl leading-[0.95] md:text-8xl">
+          <h1 className="mt-5 max-w-4xl text-[2.5rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-8xl">
             Dive into the <span className="display">other side</span> of Vietnam.
           </h1>
-          <p className="mt-8 max-w-xl text-lg text-primary-foreground/85">
+          <p className="mt-6 max-w-xl text-base text-primary-foreground/85 sm:mt-8 sm:text-lg">
             From the coral pinnacles of Nha Trang to the granite walls of Con Dao — a curated guide to scuba diving along Vietnam's 3,260 km coastline.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-7 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
             <Link
               to="/destinations/$slug"
               params={{ slug: "nha-trang" }}
-              className="rounded-sm bg-coral px-7 py-4 text-sm font-medium uppercase tracking-[0.16em] text-accent-foreground transition-transform hover:-translate-y-0.5"
+              className="rounded-sm bg-coral px-5 py-3 text-xs font-medium uppercase tracking-[0.16em] text-accent-foreground transition-transform hover:-translate-y-0.5 sm:px-7 sm:py-4 sm:text-sm"
             >
               Explore Destinations
             </Link>
             <Link
               to="/tours"
-              className="rounded-sm border border-primary-foreground/40 px-7 py-4 text-sm font-medium uppercase tracking-[0.16em] backdrop-blur transition-colors hover:bg-primary-foreground hover:text-primary"
+              className="rounded-sm border border-primary-foreground/40 px-5 py-3 text-xs font-medium uppercase tracking-[0.16em] backdrop-blur transition-colors hover:bg-primary-foreground hover:text-primary sm:px-7 sm:py-4 sm:text-sm"
             >
               Book a Dive Tour
             </Link>
@@ -80,12 +80,12 @@ function Home() {
       </section>
 
       {/* INTRO */}
-      <section className="mx-auto max-w-4xl px-6 py-28 text-center">
+      <section className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-6 sm:py-28">
         <span className="rule" />
-        <p className="mt-8 font-display text-3xl leading-tight md:text-5xl">
+        <p className="mt-8 font-display text-2xl leading-tight sm:text-3xl md:text-5xl">
           "Vietnam's reefs are the country's quietest superlative — warm, biodiverse, and still gloriously uncrowded."
         </p>
-        <p className="mt-6 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+        <p className="mt-6 text-xs uppercase tracking-[0.18em] text-muted-foreground sm:text-sm">
           — The VietnamDiving Editors
         </p>
       </section>
