@@ -8,10 +8,11 @@ import { gygLink } from "@/lib/getyourguide";
 export const Route = createFileRoute("/contact")({
   head: () =>
     pageHead({
-      title: "Contact — VietnamDiving.com",
+      title: "Contact VietnamDiving.com — Trip Planning, Recommendations & Press Inquiries",
       description:
-        "Get in touch with VietnamDiving.com — questions about diving in Vietnam, recommendations, or partnership inquiries welcome.",
+        "Have a question about diving in Nha Trang, Phu Quoc, Con Dao or the Cham Islands? Need a dive school recommendation, PADI course advice, or trip-planning help? Reach the VietnamDiving.com editorial team — we reply within 48 hours. Press, partnership, and dive-shop listing inquiries also welcome.",
       path: "/contact",
+      keywords: "contact VietnamDiving, Vietnam dive trip planning, dive school recommendation Vietnam, PADI course advice Vietnam, Vietnam diving press inquiries, partnership Vietnam diving",
     }),
   component: ContactPage,
 });

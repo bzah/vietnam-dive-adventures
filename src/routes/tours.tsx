@@ -12,10 +12,11 @@ export const Route = createFileRoute("/tours")({
   },
   head: () =>
     pageHead({
-      title: "Vietnam Diving Tours — Live Booking via GetYourGuide | VietnamDiving.com",
+      title: "Vietnam Diving Tours & PADI Courses — Live Prices, Instant Booking 2026 | VietnamDiving.com",
       description:
-        "Browse hand-picked scuba diving tours, snorkeling trips, and PADI courses across Vietnam. Live availability and instant booking via GetYourGuide.",
+        "Browse hand-picked scuba diving tours, snorkeling day trips, fun-dive packages and PADI Open Water and Advanced courses across Nha Trang, Phu Quoc, Con Dao and the Cham Islands. Live availability, transparent USD pricing, free cancellation on most tours, and instant confirmation through our partner GetYourGuide.",
       path: "/tours",
+      keywords: "Vietnam diving tours, scuba diving tours Vietnam, Nha Trang dive trip, Hon Mun snorkeling tour, Phu Quoc diving tour, An Thoi snorkeling, Con Dao diving package, Cham Islands snorkeling, PADI Open Water Vietnam booking, Discover Scuba Vietnam, fun dive Vietnam, GetYourGuide Vietnam diving, book diving Vietnam online",
     }),
   component: ToursPage,
 });

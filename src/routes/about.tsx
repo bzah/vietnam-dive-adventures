@@ -6,10 +6,11 @@ import { pageHead } from "@/lib/seo";
 export const Route = createFileRoute("/about")({
   head: () =>
     pageHead({
-      title: "About — VietnamDiving.com",
+      title: "About VietnamDiving.com — Independent Editorial Guide to Scuba Diving in Vietnam",
       description:
-        "VietnamDiving.com is an editorial guide to scuba diving in Vietnam — independent recommendations, transparent affiliate booking via GetYourGuide.",
+        "VietnamDiving.com is an independent editorial publication covering scuba diving along Vietnam's 3,260 km coastline. Learn how we test dive schools, verify PADI 5-Star resort listings, quote prices in USD, and disclose every affiliate booking made through GetYourGuide. No paid placements, no invented rankings — just field-tested guides for divers planning a trip to Vietnam.",
       path: "/about",
+      keywords: "about VietnamDiving.com, Vietnam diving editorial, independent dive guide Vietnam, PADI 5-Star resorts Vietnam, GetYourGuide affiliate disclosure, dive travel journalism Vietnam",
     }),
   component: AboutPage,
 });

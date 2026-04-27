@@ -6,11 +6,13 @@ import padiImg from "@/assets/padi-courses.jpg";
 export const Route = createFileRoute("/guides/padi-courses")({
   head: () =>
     pageHead({
-      title: "PADI Courses in Vietnam — Where to Certify & Cost (2026) | VietnamDiving.com",
+      title: "PADI Courses in Vietnam 2026 — Open Water, Advanced & Divemaster Cost, Schools & How to Choose | VietnamDiving.com",
       description:
-        "Complete guide to PADI scuba diving courses in Vietnam. Where to take Open Water, Advanced and Divemaster — costs, schools, and what to expect.",
+        "The complete 2026 guide to PADI scuba diving courses in Vietnam. Compare Discover Scuba, Open Water, Advanced Open Water, Rescue Diver and Divemaster prices in Nha Trang, Phu Quoc and Con Dao. Learn what's included, how long each course takes, the legal student-to-instructor ratio, what to look for in a PADI 5-Star Dive Resort, and which destination suits first-time divers versus advanced students.",
       image: padiImg,
       path: "/guides/padi-courses",
+      keywords: "PADI courses Vietnam, PADI Open Water Vietnam cost, PADI Open Water Nha Trang, PADI Open Water Phu Quoc, Advanced Open Water Vietnam, Divemaster internship Vietnam, Discover Scuba Diving Vietnam, learn to dive Vietnam, scuba certification Vietnam, PADI 5-Star Dive Resort Vietnam, cheap PADI course Vietnam, best dive school Vietnam",
+              type: "article",
     }),
   component: () => (
     <GuideLayout

@@ -24,10 +24,11 @@ const guides = [
 export const Route = createFileRoute("/guides")({
   head: () =>
     pageHead({
-      title: "Vietnam Diving Guides — PADI, Season, Medical | VietnamDiving.com",
+      title: "Vietnam Diving Guides — PADI Courses, Season Planner & Dive Medicals (2026) | VietnamDiving.com",
       description:
-        "In-depth guides to scuba diving in Vietnam: PADI courses, best season by region, dive medical certificates, and where to find a practitioner.",
+        "Practical, in-depth guides to scuba diving in Vietnam written by divers for divers. Find out which PADI courses are taught in Nha Trang, Phu Quoc and Con Dao; the best month-by-month dive season for every region; how Vietnam's monsoon affects visibility; where to obtain a recreational dive medical certificate in Saigon, Hanoi and Nha Trang; and what to pack for tropical diving in Vietnam.",
       path: "/guides",
+      keywords: "Vietnam diving guides, PADI courses Vietnam guide, best time to dive Vietnam, Vietnam dive season by month, dive medical Vietnam, Vietnam scuba travel tips, dive packing list Vietnam, Vietnam dive visibility, monsoon diving Vietnam",
     }),
   component: GuidesIndex,
 });

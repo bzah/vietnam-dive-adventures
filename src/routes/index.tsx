@@ -20,12 +20,12 @@ const HOME_FAQ = [
 export const Route = createFileRoute("/")({
   head: () =>
     pageHead({
-      title: "Vietnam Diving — Scuba Diving Guide to Vietnam | VietnamDiving.com",
+      title: "Vietnam Diving 2026 — Best Scuba Diving Sites, PADI Courses & Liveaboard Tours | VietnamDiving.com",
       description:
-        "The editorial guide to scuba diving in Vietnam. Compare Nha Trang, Phu Quoc, Con Dao and Hoi An — book PADI courses and dive tours with confidence.",
+        "The independent editorial guide to scuba diving in Vietnam. Compare the best dive sites in Nha Trang, Phu Quoc, Con Dao and the Cham Islands; learn the right season for each coastline; and book PADI Open Water, Advanced and Discover Scuba courses with live availability via GetYourGuide. Honest pricing in USD, dive school reviews, marine life guides, and trip-planning advice from divers who actually dive Vietnam.",
       image: "/og-home.jpg",
       path: "/",
-      keywords: "Vietnam diving, scuba diving Vietnam, Nha Trang diving, Phu Quoc diving, Con Dao diving, Cham Islands, PADI Vietnam, diving tours Vietnam",
+      keywords: "Vietnam diving, scuba diving Vietnam, best diving in Vietnam, Nha Trang diving, Hon Mun marine reserve, Phu Quoc diving, An Thoi islands, Con Dao diving, Con Dao national park diving, Cham Islands diving, Hoi An diving, PADI Vietnam, PADI Open Water Vietnam, Discover Scuba Vietnam, liveaboard Vietnam, snorkeling Vietnam, dive tours Vietnam, Vietnam dive season, best time to dive Vietnam, Vietnam diving cost, Vietnam diving travel guide",
       jsonLd: [...organizationJsonLd(), faqJsonLd(HOME_FAQ)],
     }),
   component: Home,
