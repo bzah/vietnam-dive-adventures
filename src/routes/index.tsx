@@ -91,17 +91,17 @@ function Home() {
       </section>
 
       {/* DESTINATIONS */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="mb-16 flex items-end justify-between">
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-24">
+        <div className="mb-10 flex items-end justify-between sm:mb-16">
           <div>
             <span className="eyebrow">The Map</span>
-            <h2 className="mt-3 text-5xl md:text-6xl">Four coastlines, four worlds.</h2>
+            <h2 className="mt-3 text-4xl sm:text-5xl md:text-6xl">Four coastlines, four worlds.</h2>
           </div>
           <Link to="/tours" className="hidden text-sm uppercase tracking-[0.16em] text-coral md:block">
             All tours →
           </Link>
         </div>
-        <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+        <div className="grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16">
           {destinations.map((d, i) => (
             <Link
               key={d.slug}
@@ -116,49 +116,49 @@ function Home() {
                   loading="lazy"
                   width={1280}
                   height={896}
-                  className="h-[460px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-[320px] w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-[420px] md:h-[460px]"
                 />
-                <span className="absolute left-6 top-6 font-display text-7xl text-primary-foreground/85 mix-blend-overlay">
+                <span className="absolute left-5 top-5 font-display text-5xl text-primary-foreground/85 mix-blend-overlay sm:left-6 sm:top-6 sm:text-7xl">
                   {d.n}
                 </span>
               </div>
-              <div className="mt-6 flex items-baseline justify-between border-b border-border pb-4">
-                <h3 className="text-3xl">{d.name}</h3>
+              <div className="mt-5 flex items-baseline justify-between border-b border-border pb-4 sm:mt-6">
+                <h3 className="text-2xl sm:text-3xl">{d.name}</h3>
                 <span className="text-xs uppercase tracking-[0.18em] text-coral">Read →</span>
               </div>
-              <p className="mt-4 text-muted-foreground">{d.blurb}</p>
+              <p className="mt-3 text-muted-foreground sm:mt-4">{d.blurb}</p>
             </Link>
           ))}
         </div>
       </section>
 
       {/* FEATURE BAND */}
-      <section className="bg-primary py-28 text-primary-foreground">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-3">
+      <section className="bg-primary py-20 text-primary-foreground sm:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:gap-16 sm:px-6 md:grid-cols-3">
           {[
             { k: "26–30°C", v: "Year-round water temperature across Vietnamese reefs." },
             { k: "30+ sites", v: "Documented dive sites from Nha Trang to Con Dao." },
             { k: "PADI 5★", v: "Certified resorts in every featured destination." },
           ].map((s) => (
             <div key={s.k}>
-              <p className="font-display text-6xl text-coral">{s.k}</p>
-              <p className="mt-4 text-lg text-primary-foreground/80">{s.v}</p>
+              <p className="font-display text-5xl text-coral sm:text-6xl">{s.k}</p>
+              <p className="mt-3 text-base text-primary-foreground/80 sm:mt-4 sm:text-lg">{s.v}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* GUIDES TEASER */}
-      <section className="mx-auto max-w-7xl px-6 py-28">
-        <div className="grid gap-16 md:grid-cols-[1fr_2fr]">
+      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28">
+        <div className="grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16">
           <div>
             <span className="eyebrow">The Field Notes</span>
-            <h2 className="mt-3 text-5xl">Diving guides.</h2>
-            <Link to="/guides" className="mt-8 inline-block text-sm uppercase tracking-[0.16em] text-coral">
+            <h2 className="mt-3 text-4xl sm:text-5xl">Diving guides.</h2>
+            <Link to="/guides" className="mt-6 inline-block text-sm uppercase tracking-[0.16em] text-coral sm:mt-8">
               All guides →
             </Link>
           </div>
-          <div className="grid gap-10 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-3 sm:gap-10">
             {[
               { to: "/guides/padi-courses", t: "PADI Courses in Vietnam", d: "Where to certify, what it costs, and how to choose a school." },
               { to: "/guides/best-time-to-dive", t: "Best Time to Dive", d: "Monsoon-by-monsoon — when each region opens and closes." },
@@ -175,10 +175,10 @@ function Home() {
       </section>
 
       {/* WHY VIETNAM — SEO body */}
-      <section className="mx-auto max-w-4xl px-6 py-24">
+      <section className="mx-auto max-w-4xl px-5 py-20 sm:px-6 sm:py-24">
         <span className="eyebrow">Why Vietnam</span>
-        <h2 className="mt-3 text-4xl md:text-5xl">A 3,260 km coastline. Four diving worlds.</h2>
-        <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">
+        <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">A 3,260 km coastline. Four diving worlds.</h2>
+        <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground sm:mt-10 sm:space-y-6 sm:text-lg">
           <p>
             Vietnam is one of Southeast Asia's most underrated scuba diving destinations. Tucked between the better-known reefs of Thailand and the Philippines, Vietnam's 3,260 km coastline shelters over <strong className="text-foreground">350 species of hard coral</strong>, four marine protected areas, and reefs that remain remarkably uncrowded compared to neighbouring countries.
           </p>
@@ -195,15 +195,15 @@ function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-sand py-24">
-        <div className="mx-auto max-w-3xl px-6">
+      <section className="bg-sand py-20 sm:py-24">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6">
           <span className="eyebrow">FAQ</span>
-          <h2 className="mt-3 text-4xl md:text-5xl">Diving in Vietnam — the basics.</h2>
-          <dl className="mt-12 space-y-8">
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Diving in Vietnam — the basics.</h2>
+          <dl className="mt-10 space-y-6 sm:mt-12 sm:space-y-8">
             {HOME_FAQ.map((item) => (
-              <div key={item.q} className="border-b border-border pb-8">
-                <dt className="font-display text-2xl">{item.q}</dt>
-                <dd className="mt-3 text-lg leading-relaxed text-muted-foreground">{item.a}</dd>
+              <div key={item.q} className="border-b border-border pb-6 sm:pb-8">
+                <dt className="font-display text-xl sm:text-2xl">{item.q}</dt>
+                <dd className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">{item.a}</dd>
               </div>
             ))}
           </dl>
@@ -211,22 +211,22 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-28">
-        <div className="rounded-sm bg-sand p-12 md:p-20">
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-28">
+        <div className="rounded-sm bg-sand p-8 sm:p-12 md:p-20">
           <span className="eyebrow">Book your trip</span>
-          <h2 className="mt-4 max-w-2xl text-5xl md:text-6xl">Ready to suit up?</h2>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+          <h2 className="mt-4 max-w-2xl text-4xl sm:text-5xl md:text-6xl">Ready to suit up?</h2>
+          <p className="mt-5 max-w-xl text-base text-muted-foreground sm:mt-6 sm:text-lg">
             Browse hand-picked dive trips, snorkeling experiences, and PADI courses across Vietnam — bookable instantly through our partner GetYourGuide.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/tours" className="rounded-sm bg-primary px-7 py-4 text-sm font-medium uppercase tracking-[0.16em] text-primary-foreground hover:opacity-90">
+          <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
+            <Link to="/tours" className="rounded-sm bg-primary px-5 py-3 text-xs font-medium uppercase tracking-[0.16em] text-primary-foreground hover:opacity-90 sm:px-7 sm:py-4 sm:text-sm">
               Browse all tours
             </Link>
             <a
               href={gygLink({ query: "Vietnam scuba diving" })}
               target="_blank"
               rel="sponsored noopener"
-              className="rounded-sm border border-primary px-7 py-4 text-sm font-medium uppercase tracking-[0.16em] hover:bg-primary hover:text-primary-foreground"
+              className="rounded-sm border border-primary px-5 py-3 text-xs font-medium uppercase tracking-[0.16em] hover:bg-primary hover:text-primary-foreground sm:px-7 sm:py-4 sm:text-sm"
             >
               Search on GetYourGuide
             </a>
