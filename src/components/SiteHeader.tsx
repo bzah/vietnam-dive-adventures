@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 
 const destNav = [
   { slug: "nha-trang", label: "Nha Trang" },
@@ -21,7 +22,8 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-baseline gap-2">
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="VietnamDiving.com logo" width={36} height={36} className="h-9 w-9" />
           <span className="font-display text-2xl font-medium tracking-tight">
             Vietnam<span className="text-coral italic">Diving</span>
           </span>
