@@ -21,10 +21,10 @@ function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <main className="mx-auto max-w-3xl px-6 py-24">
+      <main className="mx-auto max-w-3xl px-5 py-16 sm:px-6 sm:py-24">
         <span className="eyebrow">Get in touch</span>
-        <h1 className="mt-4 text-5xl md:text-6xl">Plan your dive trip with us.</h1>
-        <p className="mt-6 max-w-xl text-lg text-muted-foreground">
+        <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl">Plan your dive trip with us.</h1>
+        <p className="mt-5 max-w-xl text-base text-muted-foreground sm:mt-6 sm:text-lg">
           Questions about a destination, course, or specific tour? Send a note and we'll reply within 48 hours.
         </p>
         {sent ? (
