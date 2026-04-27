@@ -20,6 +20,12 @@ export const Route = createFileRoute("/guides/padi-courses")({
       title="PADI courses in Vietnam"
       intro="Vietnam is one of South-East Asia's most affordable places to certify as a scuba diver — but quality varies wildly between schools. Here's how to choose."
       image={padiImg}
+      cta={{
+        query: "PADI Open Water Vietnam",
+        title: "Book your PADI course in Vietnam",
+        body: "Compare live PADI Open Water, Advanced and Discover Scuba prices across Nha Trang, Phu Quoc, Da Nang and Con Dao. Instant confirmation, free cancellation, and verified reviews on every course.",
+        ctaLabel: "See PADI courses",
+      }}
     >
       <h2>What courses are available?</h2>
       <p>Every major Vietnamese diving destination — Nha Trang, Phu Quoc, Con Dao, and Cham Islands — runs the full PADI ladder: Discover Scuba (one day), Open Water (3–4 days), Advanced Open Water (2 days), Rescue Diver (3 days), and Divemaster (4–8 weeks).</p>

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { AffiliateCTA } from "@/components/AffiliateCTA";
 import padiImg from "@/assets/padi-courses.jpg";
 
 export function GuideLayout({
@@ -10,14 +11,23 @@ export function GuideLayout({
   intro,
   image,
   children,
+  cta,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   image?: string;
   children: ReactNode;
+  /** Affiliate CTA shown both mid-article and at the end. */
+  cta?: { query: string; title: string; body: string; ctaLabel?: string };
 }) {
   const img = image ?? padiImg;
+  const defaultCta = cta ?? {
+    query: "Vietnam diving",
+    title: "Ready to book your dive in Vietnam?",
+    body: "Compare live prices, read verified reviews, and reserve diving tours, snorkeling trips and PADI courses across Vietnam. Free cancellation on most activities.",
+    ctaLabel: "See live tours",
+  };
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
@@ -34,7 +44,14 @@ export function GuideLayout({
         <div className="prose prose-lg mt-10 max-w-none space-y-8 text-base leading-relaxed text-foreground/90 sm:mt-14 sm:space-y-10 sm:text-lg [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-medium sm:[&_h2]:mt-12 sm:[&_h2]:text-3xl [&_h3]:font-display [&_h3]:text-xl sm:[&_h3]:text-2xl [&_a]:text-coral [&_a]:underline [&_p]:text-foreground/85 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:mt-2">
           {children}
         </div>
-        <div className="mt-16 border-t border-border pt-8 sm:mt-20">
+        <AffiliateCTA
+          query={defaultCta.query}
+          title={defaultCta.title}
+          body={defaultCta.body}
+          ctaLabel={defaultCta.ctaLabel}
+          variant="primary"
+        />
+        <div className="mt-10 border-t border-border pt-8 sm:mt-14">
           <Link to="/guides" className="text-sm uppercase tracking-[0.16em] text-coral">
             ← All guides
           </Link>

@@ -17,6 +17,12 @@ export const Route = createFileRoute("/guides/dive-medical")({
       eyebrow="Guide · Safety"
       title="Dive medical certificate in Vietnam"
       intro="If your PADI medical questionnaire flags any condition — asthma, diabetes, recent surgery — you'll need a dive medical practitioner sign-off before you can dive. Here's where to find one in Vietnam."
+      cta={{
+        query: "Vietnam diving",
+        title: "Cleared to dive? Book your spot in Vietnam",
+        body: "Once your medical is signed, lock in a tour before peak season fills up. Reserve now and pay later on most diving and PADI courses across Vietnam.",
+        ctaLabel: "See diving tours",
+      }}
     >
       <h2>Who can sign a dive medical?</h2>
       <p>Any licensed medical doctor can technically sign a recreational diver medical, but most dive centres want a doctor with hyperbaric or sports-medicine experience. International SOS clinics in Vietnam usually have a designated dive doctor on staff.</p>

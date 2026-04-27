@@ -20,6 +20,12 @@ export const Route = createFileRoute("/guides/best-time-to-dive")({
       title="Best time to dive in Vietnam"
       intro="Vietnam's S-shaped coastline straddles two monsoon systems, which means there is always somewhere good to dive — but never everywhere at once."
       image={hero}
+      cta={{
+        query: "Vietnam diving",
+        title: "Plan your trip around Vietnam's dive season",
+        body: "Whether you're chasing 25 m visibility in Nha Trang or sea turtles in Con Dao, book the right tour for the right month. Free cancellation lets you stay flexible if the weather turns.",
+        ctaLabel: "Browse seasonal tours",
+      }}
     >
       <h2>Nha Trang & Central Coast (Feb – Oct)</h2>
       <p>The northeast monsoon shuts the central coast from November through January. Conditions reopen in February and peak from April to August with 15–25 m visibility. Avoid October — the wet season tail can bring sudden storms.</p>
